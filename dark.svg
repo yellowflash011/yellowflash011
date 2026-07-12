@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="768" viewBox="0 0 1180 768" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'Courier New', monospace">
+  <rect x="1" y="1" width="1178" height="766" rx="14" fill="#0d1117" stroke="#1f2630" stroke-width="1.5"/>
+  <rect x="1" y="1" width="1178" height="40" rx="14" fill="#0d1117"/>
+  <line x1="1" y1="41" x2="1179" y2="41" stroke="#1f2630" stroke-width="1"/>
+  <circle cx="28" cy="21" r="6.5" fill="#ff5f56"/>
+  <circle cx="50" cy="21" r="6.5" fill="#ffbd2e"/>
+  <circle cx="72" cy="21" r="6.5" fill="#27c93f"/>
+  <text x="590.0" y="26" text-anchor="middle" font-size="13" fill="#6e7681" xml:space="preserve">yellowflash011 — zsh — 80×24</text>
+  <text x="46" y="305.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">██    ██   ██    ██</text>
+  <text x="46" y="327.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">██    ██   ███   ██</text>
+  <text x="46" y="349.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">██    ██   ████  ██</text>
+  <text x="46" y="371.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">████████   ██ ██ ██</text>
+  <text x="46" y="393.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">████████   ██  ████</text>
+  <text x="46" y="415.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">██    ██   ██   ███</text>
+  <text x="46" y="437.0" font-size="15" fill="#F5C518" xml:space="preserve" font-weight="700">██    ██   ██    ██</text>
+  <text x="46" y="469.0" font-size="15" font-weight="700" xml:space="preserve"><tspan fill="#FCD34D">⚡ </tspan><tspan fill="#e6edf3">yellowflash011</tspan></text>
+  <text x="46" y="491.0" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">──────────────────</tspan></text>
+  <text x="46" y="513.0" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">the yellow flash</tspan></text>
+  <text x="46" y="535.0" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518">◆ </tspan><tspan fill="#c9d1d9">crafting the web, deliberately</tspan></text>
+  <text x="430" y="114" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518">hussain</tspan><tspan fill="#6e7681">@</tspan><tspan fill="#FCD34D">sargodha</tspan></text>
+  <text x="430" y="136" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">────────────────</tspan></text>
+  <text x="430" y="158" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="430" y="180" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Subject </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Hussain Nazir Awan</tspan></text>
+  <text x="430" y="202" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Role    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Full Stack Web Developer</tspan></text>
+  <text x="430" y="224" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Focus   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Software Engineer</tspan></text>
+  <text x="430" y="246" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Origin  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Sargodha, Pakistan</tspan></text>
+  <text x="430" y="268" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Status  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">open to work</tspan></text>
+  <text x="430" y="290" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="430" y="312" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">stack</tspan><tspan fill="#6e7681"> ─────────────────</tspan></text>
+  <text x="430" y="334" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Core    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">JavaScript · TypeScript</tspan></text>
+  <text x="430" y="356" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Front   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">React · Next.js · Three.js / WebGL</tspan></text>
+  <text x="430" y="378" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Back    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Node.js · Express · REST APIs</tspan></text>
+  <text x="430" y="400" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Data    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">PostgreSQL · MongoDB</tspan></text>
+  <text x="430" y="422" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Tools   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Git · Vite · Tailwind · Vercel</tspan></text>
+  <text x="430" y="444" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="430" y="466" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">contact</tspan><tspan fill="#6e7681"> ───────────────</tspan></text>
+  <text x="430" y="488" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Web     </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">hussain-nazir.vercel.app</tspan></text>
+  <text x="430" y="510" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Mail    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">hnazeer566@gmail.com</tspan></text>
+  <text x="430" y="532" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Linked  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">in/hussain-nazir</tspan></text>
+  <text x="430" y="554" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> GitHub  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">@yellowflash011</tspan></text>
+  <text x="430" y="576" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="430" y="598" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">github stats</tspan><tspan fill="#6e7681"> ──────────</tspan></text>
+  <text x="430" y="620" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Repos    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">6    </tspan><tspan fill="#6e7681">Stars    : </tspan><tspan fill="#FCD34D">0</tspan></text>
+  <text x="430" y="642" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Commits  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">240  </tspan><tspan fill="#6e7681">Followers: </tspan><tspan fill="#FCD34D">2</tspan></text>
+  <text x="430" y="664" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="430" y="686" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> HTML        </tspan><tspan fill="#F5C518">█████</tspan><tspan fill="#6e7681">░░░░░</tspan><tspan fill="#c9d1d9"> 51%</tspan></text>
+  <text x="430" y="708" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> CSS         </tspan><tspan fill="#F5C518">████</tspan><tspan fill="#6e7681">░░░░░░</tspan><tspan fill="#c9d1d9"> 39%</tspan></text>
+  <text x="430" y="730" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> JavaScript  </tspan><tspan fill="#F5C518">█</tspan><tspan fill="#6e7681">░░░░░░░░░</tspan><tspan fill="#c9d1d9">  9%</tspan></text>
+</svg>
