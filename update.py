@@ -235,11 +235,11 @@ def render(theme_name, stats):
 
     pad = 34
     left_x = pad + 12
-    right_x = 430
+    right_x = 476
     top = 96                      # below the window title bar
     n = max(len(lines), len(MONOGRAM) + 8)
     height = top + n * LH + 34
-    width = 1180
+    width = 1240
 
     def text(x, y, segs, size=FS, weight="400"):
         spans = "".join(
@@ -269,7 +269,7 @@ def render(theme_name, stats):
     # left column: ASCII portrait (falls back to the HN monogram)
     art = load_portrait()
     if art:
-        FS_P, LH_P = 13, 15          # tight leading so the art reads as an image
+        FS_P, LH_P = 8, 8.8          # tight leading so the art reads as an image
         art_h = len(art) * LH_P
         ay = top + (n * LH - (art_h + 3 * LH)) / 2 + LH_P
         for i, row in enumerate(art):

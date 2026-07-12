@@ -12,21 +12,29 @@ Tuning knobs are at the top. Re-run after tweaking to preview in the terminal.
 """
 
 import sys
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageFilter
 
 # --- tuning -----------------------------------------------------------------
-COLS       = 46      # width of the portrait in characters
-CHAR_RATIO = 0.50    # monospace cell height/width correction (~0.5)
-CUTOFF     = 0.30    # 0..1 — brightness above this (background) becomes blank
-GAMMA      = 0.78    # <1 lifts midtones, >1 deepens them
-AUTOCONTRAST = 3     # percent clipped from each end before mapping
+COLS       = 78      # width of the portrait in characters
+CHAR_RATIO = 0.52    # monospace cell height/width correction (~0.5)
+CUTOFF     = 0.28    # 0..1 — brightness above this (background) becomes blank
+GAMMA      = 0.80    # <1 lifts midtones, >1 deepens them
+AUTOCONTRAST = 2     # percent clipped from each end before mapping
+# crop as fractions (left, top, right, bottom) — zoom in on the head/shoulders
+CROP       = (0.06, 0.03, 0.94, 0.80)
 # ramp from least ink (blank) to most ink (solid); darkness picks the glyph
-RAMP = " .:-=+coaPO#8%@"
+RAMP = " .`'\",:;-~=+ilcaoxPO#8%@$&"
 
 
 def to_ascii(path):
     img = Image.open(path).convert("L")
+
+    w, h = img.size
+    l, t, r, b = CROP
+    img = img.crop((int(w*l), int(h*t), int(w*r), int(h*b)))
+
     img = ImageOps.autocontrast(img, cutoff=AUTOCONTRAST)
+    img = img.filter(ImageFilter.UnsharpMask(radius=2, percent=140, threshold=2))
 
     w, h = img.size
     rows = max(1, int(COLS * (h / w) * CHAR_RATIO))
