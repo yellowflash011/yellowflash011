@@ -70,7 +70,7 @@ THEMES = {
     },
 }
 
-# solid-block letterforms — only █ and spaces, so columns align in any font
+# solid-block letterforms — fallback if portrait.txt is missing
 MONOGRAM = [
     "██    ██   ██    ██",
     "██    ██   ███   ██",
@@ -80,6 +80,18 @@ MONOGRAM = [
     "██    ██   ██   ███",
     "██    ██   ██    ██",
 ]
+
+
+def load_portrait():
+    """ASCII portrait rows produced by portrait.py; None if not generated."""
+    try:
+        with open("portrait.txt", encoding="utf-8") as f:
+            rows = [ln.rstrip("\n") for ln in f]
+        while rows and not rows[-1].strip():
+            rows.pop()
+        return rows or None
+    except FileNotFoundError:
+        return None
 
 FONT = ("ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, "
         "'Liberation Mono', 'Courier New', monospace")
@@ -254,24 +266,33 @@ def render(theme_name, stats):
         f'fill="{c["muted"]}" xml:space="preserve">'
         f'{USERNAME} — zsh — 80×24</text>')
 
-    # left column: monogram, vertically centred, amber
-    mono_h = len(MONOGRAM) * LH
-    my = top + (n * LH - (mono_h + 5 * LH)) / 2 + LH
-    for i, row in enumerate(MONOGRAM):
-        parts.append(
-            f'<text x="{left_x}" y="{my + i*LH}" font-size="{FS}" '
-            f'fill="{c["accent"]}" xml:space="preserve" '
-            f'font-weight="700">{esc(row)}</text>')
-    by = my + len(MONOGRAM) * LH + 10
+    # left column: ASCII portrait (falls back to the HN monogram)
+    art = load_portrait()
+    if art:
+        FS_P, LH_P = 13, 15          # tight leading so the art reads as an image
+        art_h = len(art) * LH_P
+        ay = top + (n * LH - (art_h + 3 * LH)) / 2 + LH_P
+        for i, row in enumerate(art):
+            parts.append(
+                f'<text x="{left_x}" y="{ay + i*LH_P}" font-size="{FS_P}" '
+                f'fill="{c["title"]}" xml:space="preserve">{esc(row)}</text>')
+        by = ay + art_h + 26
+    else:
+        mono_h = len(MONOGRAM) * LH
+        my = top + (n * LH - (mono_h + 3 * LH)) / 2 + LH
+        for i, row in enumerate(MONOGRAM):
+            parts.append(
+                f'<text x="{left_x}" y="{my + i*LH}" font-size="{FS}" '
+                f'fill="{c["accent"]}" xml:space="preserve" '
+                f'font-weight="700">{esc(row)}</text>')
+        by = my + mono_h + 26
+
     parts.append(text(left_x, by, [("⚡ ", "accent2"),
                                     ("yellowflash011", "title")], weight="700"))
-    parts.append(text(left_x, by + LH,
-                      [("─" * 18, "muted")]))
+    parts.append(text(left_x, by + LH, [("─" * 22, "muted")]))
     parts.append(text(left_x, by + LH*2,
-                      [("the yellow flash", "muted")]))
-    parts.append(text(left_x, by + LH*3,
-                      [("◆ ", "accent"), ("crafting the web, deliberately",
-                                          "value")]))
+                      [("the yellow flash", "accent"),
+                       ("  ·  full-stack, web", "muted")]))
 
     # right column: readout
     for i, segs in enumerate(lines):
