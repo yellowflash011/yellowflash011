@@ -15,7 +15,7 @@ import sys
 from PIL import Image, ImageOps, ImageFilter
 
 # --- tuning -----------------------------------------------------------------
-COLS       = 120     # width of the portrait in characters
+COLS       = 62      # width of the portrait in characters
 CHAR_RATIO = 0.52    # monospace cell height/width correction (~0.5)
 CUTOFF     = 0.12    # clean up the background to make it pop
 GAMMA      = 0.90    # near-linear gamma for faithful shading (no artificial heavy beard)
