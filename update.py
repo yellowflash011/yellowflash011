@@ -85,9 +85,27 @@ def load_portrait():
     try:
         with open("portrait.txt", encoding="utf-8") as f:
             rows = [ln.rstrip("\n") for ln in f]
+        # Remove blank rows at top and bottom
         while rows and not rows[-1].strip():
             rows.pop()
-        return rows or None
+        while rows and not rows[0].strip():
+            rows.pop(0)
+            
+        if not rows:
+            return None
+            
+        # Fix symmetry: find the bounding box of visible characters
+        min_lead = min((len(r) - len(r.lstrip(" "))) for r in rows if r.strip())
+        min_trail = min((len(r) - len(r.rstrip(" "))) for r in rows if r.strip())
+        
+        bound_rows = []
+        for r in rows:
+            r = r[min_lead:]
+            if min_trail > 0:
+                r = r[:-min_trail]
+            bound_rows.append(r)
+            
+        return bound_rows
     except FileNotFoundError:
         return None
 
