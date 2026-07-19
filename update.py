@@ -93,13 +93,14 @@ def load_portrait():
 
 FONT = ("ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, "
         "'Liberation Mono', 'Courier New', monospace")
-RENDER_SCALE = 2.0    # high-res canvas — sharper on retina / GitHub
-PORTRAIT_FS  = 11     # portrait glyph size (base, before scale; was 8)
-WIDTH_BASE   = 1380   # wider card so the enlarged portrait fits
-RIGHT_X_BASE = 630    # pushed right to make room for the portrait
+RENDER_SCALE = 2.0
+WIDTH_BASE = 1200
+LEFT_FRAC = 0.50          # portrait occupies the left half
+RIGHT_FRAC = 0.60         # details start further into the right half
+CHAR_W_RATIO = 0.602      # monospace char-width / font-size
+PORTRAIT_LH_RATIO = 1.1
 FS = round(15 * RENDER_SCALE)
 LH = round(22 * RENDER_SCALE)
-CHAR = 9.02 * RENDER_SCALE
 
 
 # ---- GitHub API ------------------------------------------------------------
@@ -209,25 +210,39 @@ def build_lines(stats):
     return L
 
 
+def portrait_font_size(art, content_h, sc):
+    """Scale portrait glyphs to fill the left half of the card."""
+    cols = max(len(r) for r in art)
+    rows = len(art)
+    panel_w = WIDTH_BASE * LEFT_FRAC * sc - round(48 * sc)
+    caption_h = 3 * LH + round(36 * sc)
+    panel_h = content_h - caption_h
+    fs_w = panel_w / (cols * CHAR_W_RATIO)
+    fs_h = panel_h / (rows * PORTRAIT_LH_RATIO)
+    return max(8, round(min(fs_w, fs_h)))
+
+
 def render(theme_name, stats):
     c = THEMES[theme_name]
     lines = build_lines(stats)
     sc = RENDER_SCALE
 
-    pad = round(34 * sc)
-    left_x = pad + round(12 * sc)
-    right_x = round(RIGHT_X_BASE * sc)
-    top = round(96 * sc)          # below the window title bar
+    top = round(96 * sc)
     art = load_portrait()
     n = max(len(lines), len(MONOGRAM) + 8, len(art or []))
     height = top + n * LH + round(34 * sc)
     width = round(WIDTH_BASE * sc)
+    left_panel_w = width * LEFT_FRAC
+    right_x = round(width * RIGHT_FRAC)
+    content_h = n * LH
 
-    def text(x, y, segs, size=FS, weight="400"):
+    def text(x, y, segs, size=FS, weight="400", anchor=None):
         spans = "".join(
             f'<tspan fill="{c[col]}">{esc(t)}</tspan>' for t, col in segs)
+        anchor_attr = f' text-anchor="{anchor}"' if anchor else ""
         return (f'<text x="{x}" y="{y}" font-size="{size}" '
-                f'font-weight="{weight}" xml:space="preserve">{spans}</text>')
+                f'font-weight="{weight}"{anchor_attr} '
+                f'xml:space="preserve">{spans}</text>')
 
     parts = []
     rx = round(14 * sc)
@@ -250,35 +265,51 @@ def render(theme_name, stats):
         f'font-size="{round(13 * sc)}" fill="{c["muted"]}" xml:space="preserve">'
         f'{USERNAME} — zsh — 80×24</text>')
 
-    # left column: ASCII portrait (falls back to the HN monogram)
+    # left half: ASCII portrait (falls back to the HN monogram)
+    caption_x = round(left_panel_w / 2)
     if art:
-        FS_P = round(PORTRAIT_FS * sc)
-        LH_P = round(PORTRAIT_FS * 1.1 * sc, 1)
+        FS_P = portrait_font_size(art, content_h, sc)
+        LH_P = round(FS_P * PORTRAIT_LH_RATIO, 1)
+        art_cols = max(len(r) for r in art)
+        art_w = art_cols * CHAR_W_RATIO * FS_P
+        left_x = round((left_panel_w - art_w) / 2)
         art_h = len(art) * LH_P
-        ay = top + (n * LH - (art_h + 3 * LH)) / 2 + LH_P
+        caption_h = 3 * LH + round(36 * sc)
+        ay = top + (content_h - (art_h + caption_h)) / 2 + FS_P
         for i, row in enumerate(art):
             parts.append(
                 f'<text x="{left_x}" y="{round(ay + i*LH_P, 1)}" font-size="{FS_P}" '
                 f'fill="{c["title"]}" xml:space="preserve">{esc(row)}</text>')
-        by = ay + art_h + round(26 * sc)
+        by = ay + art_h + round(24 * sc)
     else:
         mono_h = len(MONOGRAM) * LH
-        my = top + (n * LH - (mono_h + 3 * LH)) / 2 + LH
+        caption_h = 3 * LH + round(36 * sc)
+        my = top + (content_h - (mono_h + caption_h)) / 2 + LH
+        left_x = round(left_panel_w / 2 - 80 * sc)
         for i, row in enumerate(MONOGRAM):
             parts.append(
                 f'<text x="{left_x}" y="{my + i*LH}" font-size="{FS}" '
                 f'fill="{c["accent"]}" xml:space="preserve" '
                 f'font-weight="700">{esc(row)}</text>')
-        by = my + mono_h + round(26 * sc)
+        by = my + mono_h + round(24 * sc)
 
-    parts.append(text(left_x, by, [("⚡ ", "accent2"),
-                                    ("yellowflash011", "title")], weight="700"))
-    parts.append(text(left_x, by + LH, [("─" * 22, "muted")]))
-    parts.append(text(left_x, by + LH*2,
+    parts.append(text(caption_x, by, [("⚡ ", "accent2"),
+                                      ("yellowflash011", "title")],
+                      weight="700", anchor="middle"))
+    parts.append(text(caption_x, by + LH, [("─" * 22, "muted")], anchor="middle"))
+    parts.append(text(caption_x, by + LH * 2,
                       [("the yellow flash", "accent"),
-                       ("  ·  full-stack, web", "muted")]))
+                       ("  ·  full-stack, web", "muted")],
+                      anchor="middle"))
 
-    # right column: readout
+    # subtle divider between portrait and details
+    div_x = round(left_panel_w)
+    parts.append(
+        f'<line x1="{div_x}" y1="{top - round(8*sc)}" x2="{div_x}" '
+        f'y2="{top + content_h + round(8*sc)}" stroke="{c["border"]}" '
+        f'stroke-width="1" opacity="0.6"/>')
+
+    # right half: readout
     for i, segs in enumerate(lines):
         parts.append(text(right_x, top + 18 + i * LH, segs))
 
