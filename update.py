@@ -93,7 +93,10 @@ def load_portrait():
 
 FONT = ("ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, "
         "'Liberation Mono', 'Courier New', monospace")
-RENDER_SCALE = 1.5   # higher-res canvas — sharper on retina / GitHub
+RENDER_SCALE = 2.0    # high-res canvas — sharper on retina / GitHub
+PORTRAIT_FS  = 11     # portrait glyph size (base, before scale; was 8)
+WIDTH_BASE   = 1380   # wider card so the enlarged portrait fits
+RIGHT_X_BASE = 630    # pushed right to make room for the portrait
 FS = round(15 * RENDER_SCALE)
 LH = round(22 * RENDER_SCALE)
 CHAR = 9.02 * RENDER_SCALE
@@ -213,11 +216,12 @@ def render(theme_name, stats):
 
     pad = round(34 * sc)
     left_x = pad + round(12 * sc)
-    right_x = round(476 * sc)
+    right_x = round(RIGHT_X_BASE * sc)
     top = round(96 * sc)          # below the window title bar
-    n = max(len(lines), len(MONOGRAM) + 8)
+    art = load_portrait()
+    n = max(len(lines), len(MONOGRAM) + 8, len(art or []))
     height = top + n * LH + round(34 * sc)
-    width = round(1240 * sc)
+    width = round(WIDTH_BASE * sc)
 
     def text(x, y, segs, size=FS, weight="400"):
         spans = "".join(
@@ -247,9 +251,9 @@ def render(theme_name, stats):
         f'{USERNAME} — zsh — 80×24</text>')
 
     # left column: ASCII portrait (falls back to the HN monogram)
-    art = load_portrait()
     if art:
-        FS_P, LH_P = round(8 * sc), round(8.8 * sc, 1)
+        FS_P = round(PORTRAIT_FS * sc)
+        LH_P = round(PORTRAIT_FS * 1.1 * sc, 1)
         art_h = len(art) * LH_P
         ay = top + (n * LH - (art_h + 3 * LH)) / 2 + LH_P
         for i, row in enumerate(art):
