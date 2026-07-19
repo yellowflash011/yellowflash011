@@ -93,9 +93,9 @@ def load_portrait():
 
 FONT = ("ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, "
         "'Liberation Mono', 'Courier New', monospace")
-RENDER_SCALE = 2.0
-WIDTH_BASE = 1200
-LEFT_FRAC = 0.50          # portrait occupies the left half
+RENDER_SCALE = 2.5
+WIDTH_BASE = 1400
+LEFT_FRAC = 0.55          # portrait occupies the left half
 RIGHT_FRAC = 0.60         # details start further into the right half
 CHAR_W_RATIO = 0.602      # monospace char-width / font-size
 PORTRAIT_LH_RATIO = 1.1

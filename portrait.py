@@ -15,13 +15,14 @@ import sys
 from PIL import Image, ImageOps, ImageFilter
 
 # --- tuning -----------------------------------------------------------------
-COLS       = 78      # width of the portrait in characters
+COLS       = 120     # width of the portrait in characters
 CHAR_RATIO = 0.52    # monospace cell height/width correction (~0.5)
-CUTOFF     = 0.28    # 0..1 — brightness above this (background) becomes blank
-GAMMA      = 0.80    # <1 lifts midtones, >1 deepens them
-AUTOCONTRAST = 2     # percent clipped from each end before mapping
-# crop as fractions (left, top, right, bottom) — zoom in on the head/shoulders
-CROP       = (0.06, 0.03, 0.94, 0.80)
+CUTOFF     = 0.12    # clean up the background to make it pop
+GAMMA      = 0.90    # near-linear gamma for faithful shading (no artificial heavy beard)
+AUTOCONTRAST = 1     # gently normalize lighting
+# Use the full image! Previous crops were likely cutting off the chin/neck, 
+# making shadows look like a floating beard and destroying the likeness.
+CROP       = (0.0, 0.0, 1.0, 1.0)
 # ramp from least ink (blank) to most ink (solid); darkness picks the glyph
 RAMP = " .`'\",:;-~=+ilcaoxPO#8%@$&"
 
@@ -33,8 +34,11 @@ def to_ascii(path):
     l, t, r, b = CROP
     img = img.crop((int(w*l), int(h*t), int(w*r), int(h*b)))
 
-    img = ImageOps.autocontrast(img, cutoff=AUTOCONTRAST)
-    img = img.filter(ImageFilter.UnsharpMask(radius=2, percent=140, threshold=2))
+    if AUTOCONTRAST > 0:
+        img = ImageOps.autocontrast(img, cutoff=AUTOCONTRAST)
+    
+    # Mild sharpening to keep glasses and eyebrows defined without blowing out shadows
+    img = img.filter(ImageFilter.UnsharpMask(radius=2, percent=100, threshold=3))
 
     w, h = img.size
     rows = max(1, int(COLS * (h / w) * CHAR_RATIO))
