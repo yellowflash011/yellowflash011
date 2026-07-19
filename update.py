@@ -3,7 +3,7 @@
 Regenerates dark.svg and light.svg — a terminal "neofetch" style profile card
 for github.com/yellowflash011.
 
-Live GitHub stats (repos, stars, commits, followers, top languages) are pulled
+Live GitHub stats (repos, stars, commits, followers) are pulled from the
 from the GitHub API when a token is present (the GitHub Action passes GITHUB_TOKEN).
 Run locally with no token/network and it falls back to sensible defaults so the
 SVGs always regenerate cleanly.
@@ -46,8 +46,6 @@ IDENTITY = {
 
 DEFAULTS = {
     "repos": 12, "stars": 8, "commits": 240, "followers": 5,
-    "langs": [("JavaScript", 55), ("TypeScript", 24),
-              ("CSS", 12), ("HTML", 9)],
 }
 
 # ---- theme palettes --------------------------------------------------------
@@ -95,9 +93,10 @@ def load_portrait():
 
 FONT = ("ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, "
         "'Liberation Mono', 'Courier New', monospace")
-FS = 15          # font size
-LH = 22          # line height
-CHAR = 9.02      # monospace advance at FS=15 (approx)
+RENDER_SCALE = 1.5   # higher-res canvas — sharper on retina / GitHub
+FS = round(15 * RENDER_SCALE)
+LH = round(22 * RENDER_SCALE)
+CHAR = 9.02 * RENDER_SCALE
 
 
 # ---- GitHub API ------------------------------------------------------------
@@ -122,7 +121,7 @@ def fetch_stats():
         user = _api(f"https://api.github.com/users/{USERNAME}", token)
         followers = user.get("followers", 0)
 
-        repos, stars, lang_bytes = [], 0, {}
+        repos, stars = [], 0
         page = 1
         while True:
             batch = _api(
@@ -140,19 +139,6 @@ def fetch_stats():
             stars += r.get("stargazers_count", 0)
         repo_count = len(owned)
 
-        # top languages
-        for r in owned[:60]:
-            try:
-                langs = _api(r["languages_url"], token)
-                for name, b in langs.items():
-                    lang_bytes[name] = lang_bytes.get(name, 0) + b
-            except Exception:
-                pass
-
-        total = sum(lang_bytes.values()) or 1
-        top = sorted(lang_bytes.items(), key=lambda kv: -kv[1])[:4]
-        langs = [(n, round(b * 100 / total)) for n, b in top] or DEFAULTS["langs"]
-
         # commits (this year) via GraphQL — needs a token
         commits = DEFAULTS["commits"]
         if token:
@@ -168,7 +154,7 @@ def fetch_stats():
                 pass
 
         return {"repos": repo_count, "stars": stars, "commits": commits,
-                "followers": followers, "langs": langs}
+                "followers": followers}
     except Exception as e:
         print("stats fetch failed, using defaults:", e)
         return DEFAULTS
@@ -217,29 +203,21 @@ def build_lines(stats):
     L.append([(" Commits  ", "key"), (": ", "muted"),
               (f"{stats['commits']:<5}", "value"),
               ("Followers: ", "muted"), (str(stats["followers"]), "accent2")])
-    L.append([("", "muted")])
-
-    for name, pct in stats["langs"]:
-        fill = max(0, min(10, round(pct / 10)))
-        bar_fill = "█" * fill
-        bar_track = "░" * (10 - fill)
-        L.append([(f" {name:<12}", "value"),
-                  (bar_fill, "fill"), (bar_track, "muted"),
-                  (f" {pct:>2}%", "value")])
     return L
 
 
 def render(theme_name, stats):
     c = THEMES[theme_name]
     lines = build_lines(stats)
+    sc = RENDER_SCALE
 
-    pad = 34
-    left_x = pad + 12
-    right_x = 476
-    top = 96                      # below the window title bar
+    pad = round(34 * sc)
+    left_x = pad + round(12 * sc)
+    right_x = round(476 * sc)
+    top = round(96 * sc)          # below the window title bar
     n = max(len(lines), len(MONOGRAM) + 8)
-    height = top + n * LH + 34
-    width = 1240
+    height = top + n * LH + round(34 * sc)
+    width = round(1240 * sc)
 
     def text(x, y, segs, size=FS, weight="400"):
         spans = "".join(
@@ -248,35 +226,37 @@ def render(theme_name, stats):
                 f'font-weight="{weight}" xml:space="preserve">{spans}</text>')
 
     parts = []
+    rx = round(14 * sc)
     # window frame
     parts.append(
-        f'<rect x="1" y="1" width="{width-2}" height="{height-2}" rx="14" '
+        f'<rect x="1" y="1" width="{width-2}" height="{height-2}" rx="{rx}" '
         f'fill="{c["bg"]}" stroke="{c["border"]}" stroke-width="1.5"/>')
     # title bar
+    title_h = round(40 * sc)
     parts.append(
-        f'<rect x="1" y="1" width="{width-2}" height="40" rx="14" '
+        f'<rect x="1" y="1" width="{width-2}" height="{title_h}" rx="{rx}" '
         f'fill="{c["bg"]}"/>')
-    parts.append(f'<line x1="1" y1="41" x2="{width-1}" y2="41" '
+    parts.append(f'<line x1="1" y1="{title_h + 1}" x2="{width-1}" y2="{title_h + 1}" '
                  f'stroke="{c["border"]}" stroke-width="1"/>')
     for i, dot in enumerate(("dot1", "dot2", "dot3")):
-        parts.append(f'<circle cx="{28 + i*22}" cy="21" r="6.5" '
-                     f'fill="{c[dot]}"/>')
+        parts.append(f'<circle cx="{round((28 + i*22) * sc)}" cy="{round(21 * sc)}" '
+                     f'r="{6.5 * sc}" fill="{c[dot]}"/>')
     parts.append(
-        f'<text x="{width/2}" y="26" text-anchor="middle" font-size="13" '
-        f'fill="{c["muted"]}" xml:space="preserve">'
+        f'<text x="{width/2}" y="{round(26 * sc)}" text-anchor="middle" '
+        f'font-size="{round(13 * sc)}" fill="{c["muted"]}" xml:space="preserve">'
         f'{USERNAME} — zsh — 80×24</text>')
 
     # left column: ASCII portrait (falls back to the HN monogram)
     art = load_portrait()
     if art:
-        FS_P, LH_P = 8, 8.8          # tight leading so the art reads as an image
+        FS_P, LH_P = round(8 * sc), round(8.8 * sc, 1)
         art_h = len(art) * LH_P
         ay = top + (n * LH - (art_h + 3 * LH)) / 2 + LH_P
         for i, row in enumerate(art):
             parts.append(
-                f'<text x="{left_x}" y="{ay + i*LH_P}" font-size="{FS_P}" '
+                f'<text x="{left_x}" y="{round(ay + i*LH_P, 1)}" font-size="{FS_P}" '
                 f'fill="{c["title"]}" xml:space="preserve">{esc(row)}</text>')
-        by = ay + art_h + 26
+        by = ay + art_h + round(26 * sc)
     else:
         mono_h = len(MONOGRAM) * LH
         my = top + (n * LH - (mono_h + 3 * LH)) / 2 + LH
@@ -285,7 +265,7 @@ def render(theme_name, stats):
                 f'<text x="{left_x}" y="{my + i*LH}" font-size="{FS}" '
                 f'fill="{c["accent"]}" xml:space="preserve" '
                 f'font-weight="700">{esc(row)}</text>')
-        by = my + mono_h + 26
+        by = my + mono_h + round(26 * sc)
 
     parts.append(text(left_x, by, [("⚡ ", "accent2"),
                                     ("yellowflash011", "title")], weight="700"))
@@ -301,7 +281,8 @@ def render(theme_name, stats):
     body = "\n  ".join(parts)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" '
             f'height="{height}" viewBox="0 0 {width} {height}" '
-            f'font-family="{FONT}">\n  {body}\n</svg>\n')
+            f'font-family="{FONT}" text-rendering="geometricPrecision" '
+            f'shape-rendering="geometricPrecision">\n  {body}\n</svg>\n')
 
 
 def main():

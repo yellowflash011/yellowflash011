@@ -1,72 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="790" viewBox="0 0 1240 790" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'Courier New', monospace">
-  <rect x="1" y="1" width="1238" height="788" rx="14" fill="#0d1117" stroke="#1f2630" stroke-width="1.5"/>
-  <rect x="1" y="1" width="1238" height="40" rx="14" fill="#0d1117"/>
-  <line x1="1" y1="41" x2="1239" y2="41" stroke="#1f2630" stroke-width="1"/>
-  <circle cx="28" cy="21" r="6.5" fill="#ff5f56"/>
-  <circle cx="50" cy="21" r="6.5" fill="#ffbd2e"/>
-  <circle cx="72" cy="21" r="6.5" fill="#27c93f"/>
-  <text x="620.0" y="26" text-anchor="middle" font-size="13" fill="#6e7681" xml:space="preserve">yellowflash011 — zsh — 80×24</text>
-  <text x="46" y="269.8" font-size="8" fill="#e6edf3" xml:space="preserve">                                ":,'</text>
-  <text x="46" y="278.6" font-size="8" fill="#e6edf3" xml:space="preserve">                          'loO#888888#Oxacl=</text>
-  <text x="46" y="287.40000000000003" font-size="8" fill="#e6edf3" xml:space="preserve">                     `+O8%%8888%%8%8######8@%a'</text>
-  <text x="46" y="296.2" font-size="8" fill="#e6edf3" xml:space="preserve">                  -  #&amp;@%%88%@%8P#%@@8888#8#8%%a</text>
-  <text x="46" y="305.0" font-size="8" fill="#e6edf3" xml:space="preserve">                  ;;a%@@&amp;$$&amp;$%%%%@888%%%%%%8%%8$a</text>
-  <text x="46" y="313.8" font-size="8" fill="#e6edf3" xml:space="preserve">                  +#@$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;$&amp;&amp;$$@@@%@%%%%@@8&amp;;</text>
-  <text x="46" y="322.6" font-size="8" fill="#e6edf3" xml:space="preserve">                 iP$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;$%@@$@@@8%@%@8</text>
-  <text x="46" y="331.40000000000003" font-size="8" fill="#e6edf3" xml:space="preserve">                 O%&amp;&amp;&amp;&amp;@8%@@@@@#xccx#%$$$&amp;@%%@@@@&amp;a</text>
-  <text x="46" y="340.20000000000005" font-size="8" fill="#e6edf3" xml:space="preserve">                 i&amp;&amp;&amp;#xl~;:;:"`     "~a88a+a%@$&amp;&amp;@$</text>
-  <text x="46" y="349.0" font-size="8" fill="#e6edf3" xml:space="preserve">                  %&amp;%==~;:"`               ,+#$&amp;&amp;@&amp;;</text>
-  <text x="46" y="357.8" font-size="8" fill="#e6edf3" xml:space="preserve">                  =&amp;8;-;""           `;,'`.  :@$&amp;&amp;&amp;,</text>
-  <text x="46" y="366.6" font-size="8" fill="#e6edf3" xml:space="preserve">                   i%:i+ii=:``'~oxOPalli=;',::P$P=::</text>
-  <text x="46" y="375.40000000000003" font-size="8" fill="#e6edf3" xml:space="preserve">                     P%O88%8OaiiaoxcOo+ac~:"' i#    '</text>
-  <text x="46" y="384.20000000000005" font-size="8" fill="#e6edf3" xml:space="preserve">                     ;POaO%##c ;;+a=ci;-;;    ~i =</text>
-  <text x="46" y="393.0" font-size="8" fill="#e6edf3" xml:space="preserve">                   ~. cOcxxlP=  +' ,,::''`  ``";  '</text>
-  <text x="46" y="401.8" font-size="8" fill="#e6edf3" xml:space="preserve">                      ;=i+~~c"   ''``       `,""</text>
-  <text x="46" y="410.6" font-size="8" fill="#e6edf3" xml:space="preserve">                      ,;;;-i-      ,::'     `,,:"</text>
-  <text x="46" y="419.40000000000003" font-size="8" fill="#e6edf3" xml:space="preserve">                      ,==+++lo-`--,  ,;'   ."`,'~:</text>
-  <text x="46" y="428.20000000000005" font-size="8" fill="#e6edf3" xml:space="preserve">                       i~=ic#@8Pc:,:-=lc; .`'':"</text>
-  <text x="46" y="437.0" font-size="8" fill="#e6edf3" xml:space="preserve">                       +cioOOxci-"..'.`+l:'`':-,</text>
-  <text x="46" y="445.8" font-size="8" fill="#e6edf3" xml:space="preserve">                        xxoxlcci++~"  ,::=-;;-i'</text>
-  <text x="46" y="454.6" font-size="8" fill="#e6edf3" xml:space="preserve">                         O@#clccl+:'",,:~+++ic;</text>
-  <text x="46" y="463.40000000000003" font-size="8" fill="#e6edf3" xml:space="preserve">                          ;#@Pc+--~-~--~laall-</text>
-  <text x="46" y="472.20000000000005" font-size="8" fill="#e6edf3" xml:space="preserve">                            -O8OPxOOPPOPPoc;"</text>
-  <text x="46" y="481.0" font-size="8" fill="#e6edf3" xml:space="preserve">                              P@@$$@%#xc+-".         ,ac</text>
-  <text x="46" y="489.80000000000007" font-size="8" fill="#e6edf3" xml:space="preserve">                               OO8%8Pa+-:`            .`.`</text>
-  <text x="46" y="498.6" font-size="8" fill="#e6edf3" xml:space="preserve">                              'xxPO#Pc=;"            '..  .`'''.</text>
-  <text x="46" y="507.40000000000003" font-size="8" fill="#e6edf3" xml:space="preserve">                           ';~+oxPPPol-,`        .``. '`.`'`.''''"'``</text>
-  <text x="46" y="516.2" font-size="8" fill="#e6edf3" xml:space="preserve">                        ,~~-~+iloxxxcii~;-:,"",'`. `.'". .`'",`.'.`:,,"'`</text>
-  <text x="46" y="525.0" font-size="8" fill="#e6edf3" xml:space="preserve">                    ,-==~:"-~=++iii++~--;:""'` `''',":.  ` ':"`. `:;,,'`','</text>
-  <text x="46" y="559.8" font-size="15" font-weight="700" xml:space="preserve"><tspan fill="#FCD34D">⚡ </tspan><tspan fill="#e6edf3">yellowflash011</tspan></text>
-  <text x="46" y="581.8" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">──────────────────────</tspan></text>
-  <text x="46" y="603.8" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518">the yellow flash</tspan><tspan fill="#6e7681">  ·  full-stack, web</tspan></text>
-  <text x="476" y="114" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518">hussain</tspan><tspan fill="#6e7681">@</tspan><tspan fill="#FCD34D">sargodha</tspan></text>
-  <text x="476" y="136" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">────────────────</tspan></text>
-  <text x="476" y="158" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
-  <text x="476" y="180" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Subject </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Hussain Nazir Awan</tspan></text>
-  <text x="476" y="202" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Role    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Full Stack Web Developer</tspan></text>
-  <text x="476" y="224" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Focus   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Software Engineer</tspan></text>
-  <text x="476" y="246" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Origin  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Sargodha, Pakistan</tspan></text>
-  <text x="476" y="268" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Status  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">open to work</tspan></text>
-  <text x="476" y="290" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
-  <text x="476" y="312" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">stack</tspan><tspan fill="#6e7681"> ─────────────────</tspan></text>
-  <text x="476" y="334" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Core    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">JavaScript · TypeScript</tspan></text>
-  <text x="476" y="356" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Front   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">React · Next.js · Three.js / WebGL</tspan></text>
-  <text x="476" y="378" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Back    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Node.js · Express · REST APIs</tspan></text>
-  <text x="476" y="400" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Data    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">PostgreSQL · MongoDB</tspan></text>
-  <text x="476" y="422" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Tools   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Git · Vite · Tailwind · Vercel</tspan></text>
-  <text x="476" y="444" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
-  <text x="476" y="466" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">contact</tspan><tspan fill="#6e7681"> ───────────────</tspan></text>
-  <text x="476" y="488" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Web     </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">hussain-nazir.vercel.app</tspan></text>
-  <text x="476" y="510" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Mail    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">hnazeer566@gmail.com</tspan></text>
-  <text x="476" y="532" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Linked  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">in/hussain-nazir</tspan></text>
-  <text x="476" y="554" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> GitHub  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">@yellowflash011</tspan></text>
-  <text x="476" y="576" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
-  <text x="476" y="598" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">github stats</tspan><tspan fill="#6e7681"> ──────────</tspan></text>
-  <text x="476" y="620" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Repos    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">8    </tspan><tspan fill="#6e7681">Stars    : </tspan><tspan fill="#FCD34D">0</tspan></text>
-  <text x="476" y="642" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Commits  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">240  </tspan><tspan fill="#6e7681">Followers: </tspan><tspan fill="#FCD34D">2</tspan></text>
-  <text x="476" y="664" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
-  <text x="476" y="686" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> HTML        </tspan><tspan fill="#F5C518">█████</tspan><tspan fill="#6e7681">░░░░░</tspan><tspan fill="#c9d1d9"> 51%</tspan></text>
-  <text x="476" y="708" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> CSS         </tspan><tspan fill="#F5C518">████</tspan><tspan fill="#6e7681">░░░░░░</tspan><tspan fill="#c9d1d9"> 39%</tspan></text>
-  <text x="476" y="730" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> JavaScript  </tspan><tspan fill="#F5C518">█</tspan><tspan fill="#6e7681">░░░░░░░░░</tspan><tspan fill="#c9d1d9">  9%</tspan></text>
-  <text x="476" y="752" font-size="15" font-weight="400" xml:space="preserve"><tspan fill="#c9d1d9"> Python      </tspan><tspan fill="#F5C518"></tspan><tspan fill="#6e7681">░░░░░░░░░░</tspan><tspan fill="#c9d1d9">  1%</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1860" height="1020" viewBox="0 0 1860 1020" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'Courier New', monospace" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
+  <rect x="1" y="1" width="1858" height="1018" rx="21" fill="#0d1117" stroke="#1f2630" stroke-width="1.5"/>
+  <rect x="1" y="1" width="1858" height="60" rx="21" fill="#0d1117"/>
+  <line x1="1" y1="61" x2="1859" y2="61" stroke="#1f2630" stroke-width="1"/>
+  <circle cx="42" cy="32" r="9.75" fill="#ff5f56"/>
+  <circle cx="75" cy="32" r="9.75" fill="#ffbd2e"/>
+  <circle cx="108" cy="32" r="9.75" fill="#27c93f"/>
+  <text x="930.0" y="39" text-anchor="middle" font-size="20" fill="#6e7681" xml:space="preserve">yellowflash011 — zsh — 80×24</text>
+  <text x="69" y="322.2" font-size="12" fill="#e6edf3" xml:space="preserve">                                ":,'</text>
+  <text x="69" y="335.4" font-size="12" fill="#e6edf3" xml:space="preserve">                          'loO#888888#Oxacl=</text>
+  <text x="69" y="348.6" font-size="12" fill="#e6edf3" xml:space="preserve">                     `+O8%%8888%%8%8######8@%a'</text>
+  <text x="69" y="361.8" font-size="12" fill="#e6edf3" xml:space="preserve">                  -  #&amp;@%%88%@%8P#%@@8888#8#8%%a</text>
+  <text x="69" y="375.0" font-size="12" fill="#e6edf3" xml:space="preserve">                  ;;a%@@&amp;$$&amp;$%%%%@888%%%%%%8%%8$a</text>
+  <text x="69" y="388.2" font-size="12" fill="#e6edf3" xml:space="preserve">                  +#@$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;$&amp;&amp;$$@@@%@%%%%@@8&amp;;</text>
+  <text x="69" y="401.4" font-size="12" fill="#e6edf3" xml:space="preserve">                 iP$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;$%@@$@@@8%@%@8</text>
+  <text x="69" y="414.6" font-size="12" fill="#e6edf3" xml:space="preserve">                 O%&amp;&amp;&amp;&amp;@8%@@@@@#xccx#%$$$&amp;@%%@@@@&amp;a</text>
+  <text x="69" y="427.8" font-size="12" fill="#e6edf3" xml:space="preserve">                 i&amp;&amp;&amp;#xl~;:;:"`     "~a88a+a%@$&amp;&amp;@$</text>
+  <text x="69" y="441.0" font-size="12" fill="#e6edf3" xml:space="preserve">                  %&amp;%==~;:"`               ,+#$&amp;&amp;@&amp;;</text>
+  <text x="69" y="454.2" font-size="12" fill="#e6edf3" xml:space="preserve">                  =&amp;8;-;""           `;,'`.  :@$&amp;&amp;&amp;,</text>
+  <text x="69" y="467.4" font-size="12" fill="#e6edf3" xml:space="preserve">                   i%:i+ii=:``'~oxOPalli=;',::P$P=::</text>
+  <text x="69" y="480.6" font-size="12" fill="#e6edf3" xml:space="preserve">                     P%O88%8OaiiaoxcOo+ac~:"' i#    '</text>
+  <text x="69" y="493.8" font-size="12" fill="#e6edf3" xml:space="preserve">                     ;POaO%##c ;;+a=ci;-;;    ~i =</text>
+  <text x="69" y="507.0" font-size="12" fill="#e6edf3" xml:space="preserve">                   ~. cOcxxlP=  +' ,,::''`  ``";  '</text>
+  <text x="69" y="520.2" font-size="12" fill="#e6edf3" xml:space="preserve">                      ;=i+~~c"   ''``       `,""</text>
+  <text x="69" y="533.4" font-size="12" fill="#e6edf3" xml:space="preserve">                      ,;;;-i-      ,::'     `,,:"</text>
+  <text x="69" y="546.6" font-size="12" fill="#e6edf3" xml:space="preserve">                      ,==+++lo-`--,  ,;'   ."`,'~:</text>
+  <text x="69" y="559.8" font-size="12" fill="#e6edf3" xml:space="preserve">                       i~=ic#@8Pc:,:-=lc; .`'':"</text>
+  <text x="69" y="573.0" font-size="12" fill="#e6edf3" xml:space="preserve">                       +cioOOxci-"..'.`+l:'`':-,</text>
+  <text x="69" y="586.2" font-size="12" fill="#e6edf3" xml:space="preserve">                        xxoxlcci++~"  ,::=-;;-i'</text>
+  <text x="69" y="599.4" font-size="12" fill="#e6edf3" xml:space="preserve">                         O@#clccl+:'",,:~+++ic;</text>
+  <text x="69" y="612.6" font-size="12" fill="#e6edf3" xml:space="preserve">                          ;#@Pc+--~-~--~laall-</text>
+  <text x="69" y="625.8" font-size="12" fill="#e6edf3" xml:space="preserve">                            -O8OPxOOPPOPPoc;"</text>
+  <text x="69" y="639.0" font-size="12" fill="#e6edf3" xml:space="preserve">                              P@@$$@%#xc+-".         ,ac</text>
+  <text x="69" y="652.2" font-size="12" fill="#e6edf3" xml:space="preserve">                               OO8%8Pa+-:`            .`.`</text>
+  <text x="69" y="665.4" font-size="12" fill="#e6edf3" xml:space="preserve">                              'xxPO#Pc=;"            '..  .`'''.</text>
+  <text x="69" y="678.6" font-size="12" fill="#e6edf3" xml:space="preserve">                           ';~+oxPPPol-,`        .``. '`.`'`.''''"'``</text>
+  <text x="69" y="691.8" font-size="12" fill="#e6edf3" xml:space="preserve">                        ,~~-~+iloxxxcii~;-:,"",'`. `.'". .`'",`.'.`:,,"'`</text>
+  <text x="69" y="705.0" font-size="12" fill="#e6edf3" xml:space="preserve">                    ,-==~:"-~=++iii++~--;:""'` `''',":.  ` ':"`. `:;,,'`','</text>
+  <text x="69" y="757.2" font-size="22" font-weight="700" xml:space="preserve"><tspan fill="#FCD34D">⚡ </tspan><tspan fill="#e6edf3">yellowflash011</tspan></text>
+  <text x="69" y="790.2" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">──────────────────────</tspan></text>
+  <text x="69" y="823.2" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518">the yellow flash</tspan><tspan fill="#6e7681">  ·  full-stack, web</tspan></text>
+  <text x="714" y="162" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518">hussain</tspan><tspan fill="#6e7681">@</tspan><tspan fill="#FCD34D">sargodha</tspan></text>
+  <text x="714" y="195" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681">────────────────</tspan></text>
+  <text x="714" y="228" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="714" y="261" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Subject </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Hussain Nazir Awan</tspan></text>
+  <text x="714" y="294" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Role    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Full Stack Web Developer</tspan></text>
+  <text x="714" y="327" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Focus   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Software Engineer</tspan></text>
+  <text x="714" y="360" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Origin  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Sargodha, Pakistan</tspan></text>
+  <text x="714" y="393" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Status  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">open to work</tspan></text>
+  <text x="714" y="426" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="714" y="459" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">stack</tspan><tspan fill="#6e7681"> ─────────────────</tspan></text>
+  <text x="714" y="492" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Core    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">JavaScript · TypeScript</tspan></text>
+  <text x="714" y="525" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Front   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">React · Next.js · Three.js / WebGL</tspan></text>
+  <text x="714" y="558" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Back    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Node.js · Express · REST APIs</tspan></text>
+  <text x="714" y="591" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Data    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">PostgreSQL · MongoDB</tspan></text>
+  <text x="714" y="624" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Tools   </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">Git · Vite · Tailwind · Vercel</tspan></text>
+  <text x="714" y="657" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="714" y="690" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">contact</tspan><tspan fill="#6e7681"> ───────────────</tspan></text>
+  <text x="714" y="723" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Web     </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">hussain-nazir.vercel.app</tspan></text>
+  <text x="714" y="756" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Mail    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">hnazeer566@gmail.com</tspan></text>
+  <text x="714" y="789" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Linked  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">in/hussain-nazir</tspan></text>
+  <text x="714" y="822" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> GitHub  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">@yellowflash011</tspan></text>
+  <text x="714" y="855" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"></tspan></text>
+  <text x="714" y="888" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#6e7681"> </tspan><tspan fill="#FCD34D">github stats</tspan><tspan fill="#6e7681"> ──────────</tspan></text>
+  <text x="714" y="921" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Repos    </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">8    </tspan><tspan fill="#6e7681">Stars    : </tspan><tspan fill="#FCD34D">0</tspan></text>
+  <text x="714" y="954" font-size="22" font-weight="400" xml:space="preserve"><tspan fill="#F5C518"> Commits  </tspan><tspan fill="#6e7681">: </tspan><tspan fill="#c9d1d9">240  </tspan><tspan fill="#6e7681">Followers: </tspan><tspan fill="#FCD34D">2</tspan></text>
 </svg>
