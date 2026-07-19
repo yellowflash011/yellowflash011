@@ -228,18 +228,6 @@ def build_lines(stats):
     return L
 
 
-def portrait_font_size(art, content_h, sc):
-    """Scale portrait glyphs to fill the left half of the card."""
-    cols = max(len(r) for r in art)
-    rows = len(art)
-    panel_w = WIDTH_BASE * LEFT_FRAC * sc - round(48 * sc)
-    caption_h = 3 * LH + round(36 * sc)
-    panel_h = content_h - caption_h
-    fs_w = panel_w / (cols * CHAR_W_RATIO)
-    fs_h = panel_h / (rows * PORTRAIT_LH_RATIO)
-    return max(8, round(min(fs_w, fs_h)))
-
-
 def render(theme_name, stats):
     c = THEMES[theme_name]
     lines = build_lines(stats)
@@ -247,12 +235,31 @@ def render(theme_name, stats):
 
     top = round(96 * sc)
     art = load_portrait()
-    n = max(len(lines), len(MONOGRAM) + 8, len(art or []))
-    height = top + n * LH + round(34 * sc)
     width = round(WIDTH_BASE * sc)
     left_panel_w = width * LEFT_FRAC
     right_x = round(width * RIGHT_FRAC)
-    content_h = n * LH
+
+    # Calculate actual physical heights so we don't have empty space
+    if art:
+        art_cols = max(len(r) for r in art)
+        panel_w = left_panel_w - round(48 * sc)
+        # Scale to width, but cap at the normal font size FS so it doesn't get huge
+        FS_P = max(8, round(min(panel_w / (art_cols * CHAR_W_RATIO), FS)))
+        LH_P = round(FS_P * PORTRAIT_LH_RATIO, 1)
+        art_w = art_cols * CHAR_W_RATIO * FS_P
+        art_h = len(art) * LH_P
+    else:
+        FS_P = FS
+        LH_P = LH
+        art_w = max(len(r) for r in MONOGRAM) * CHAR_W_RATIO * FS
+        art_h = len(MONOGRAM) * LH
+
+    caption_h = 3 * LH + round(36 * sc)
+    left_physical_h = art_h + caption_h
+    right_physical_h = len(lines) * LH
+    
+    content_h = max(left_physical_h, right_physical_h)
+    height = top + content_h + round(34 * sc)
 
     def text(x, y, segs, size=FS, weight="400", anchor=None):
         spans = "".join(
@@ -283,33 +290,26 @@ def render(theme_name, stats):
         f'font-size="{round(13 * sc)}" fill="{c["muted"]}" xml:space="preserve">'
         f'{USERNAME} — zsh — 80×24</text>')
 
-    # left half: ASCII portrait (falls back to the HN monogram)
+    # left half: ASCII portrait
     caption_x = round(left_panel_w / 2)
+    left_x = round((left_panel_w - art_w) / 2)
+    
+    # Vertically center the left panel block
+    ay = top + (content_h - left_physical_h) / 2 + FS_P
+    
     if art:
-        FS_P = portrait_font_size(art, content_h, sc)
-        LH_P = round(FS_P * PORTRAIT_LH_RATIO, 1)
-        art_cols = max(len(r) for r in art)
-        art_w = art_cols * CHAR_W_RATIO * FS_P
-        left_x = round((left_panel_w - art_w) / 2)
-        art_h = len(art) * LH_P
-        caption_h = 3 * LH + round(36 * sc)
-        ay = top + (content_h - (art_h + caption_h)) / 2 + FS_P
         for i, row in enumerate(art):
             parts.append(
                 f'<text x="{left_x}" y="{round(ay + i*LH_P, 1)}" font-size="{FS_P}" '
                 f'fill="{c["title"]}" xml:space="preserve">{esc(row)}</text>')
-        by = ay + art_h + round(24 * sc)
+        by = ay + art_h - FS_P + round(36 * sc)
     else:
-        mono_h = len(MONOGRAM) * LH
-        caption_h = 3 * LH + round(36 * sc)
-        my = top + (content_h - (mono_h + caption_h)) / 2 + LH
-        left_x = round(left_panel_w / 2 - 80 * sc)
         for i, row in enumerate(MONOGRAM):
             parts.append(
-                f'<text x="{left_x}" y="{my + i*LH}" font-size="{FS}" '
+                f'<text x="{left_x}" y="{ay + i*LH}" font-size="{FS}" '
                 f'fill="{c["accent"]}" xml:space="preserve" '
                 f'font-weight="700">{esc(row)}</text>')
-        by = my + mono_h + round(24 * sc)
+        by = ay + art_h - FS_P + round(36 * sc)
 
     parts.append(text(caption_x, by, [("⚡ ", "accent2"),
                                       ("yellowflash011", "title")],
@@ -328,8 +328,10 @@ def render(theme_name, stats):
         f'stroke-width="1" opacity="0.6"/>')
 
     # right half: readout
+    # Vertically center the right panel block
+    right_y_start = top + (content_h - right_physical_h) / 2 + 18
     for i, segs in enumerate(lines):
-        parts.append(text(right_x, top + 18 + i * LH, segs))
+        parts.append(text(right_x, right_y_start + i * LH, segs))
 
     body = "\n  ".join(parts)
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" '
